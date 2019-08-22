@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Content"
+            android:text="Any content"
             android:textSize="30sp"
             android:textColor="@android:color/white"
             android:gravity="center"
@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Content"
+            android:text="Any content"
             android:textSize="30sp"
             android:textColor="@android:color/white"
             android:gravity="center"
@@ -39,7 +39,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Content"
+            android:text="Any content"
             android:textSize="30sp"
             android:textColor="@android:color/white"
             android:gravity="center"
@@ -48,7 +48,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Content"
+            android:text="Double click here"
             android:background="@color/colorAccent"
             android:textSize="30sp"
             android:id="@+id/tv"
@@ -59,7 +59,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Content"
+            android:text="Any content"
             android:textSize="30sp"
             android:textColor="@android:color/white"
             android:gravity="center"
