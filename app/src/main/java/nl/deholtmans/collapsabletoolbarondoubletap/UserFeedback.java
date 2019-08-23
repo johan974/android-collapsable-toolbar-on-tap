@@ -6,7 +6,6 @@ import android.widget.Toast;
 public class UserFeedback {
     private static Context myContext = null;
 
-    // public static void initiate( Context c) { myContext = c; }
     public static void show( String message) {
         show( message, Toast.LENGTH_SHORT);
     }

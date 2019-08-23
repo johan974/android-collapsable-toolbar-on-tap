@@ -3,7 +3,6 @@ package nl.deholtmans.collapsabletoolbarondoubletap;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -26,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Logger.setTag("ToolbarCollapseDemo");
         mainActivity = this;
 
         setContentView(R.layout.activity_main);
@@ -46,88 +46,33 @@ public class MainActivity extends AppCompatActivity {
         View framelayout_content = inflater.inflate(R.layout.content_main, null, false);
         content_frame.addView(framelayout_content);
         tv = (TextView) findViewById(R.id.tv);
-
-        setupGestureDetector();
-        tv.setOnTouchListener(new View.OnTouchListener() {
+        tv.setOnTouchListener(new OnSwipeTouchListener(this, new TouchListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                mGestureDetector.onTouchEvent(motionEvent);
-                return true;
-
+            public void onSingleTap() {
+                UserFeedback.show("Single tap");
             }
-        });
-    }
 
-    private void setupGestureDetector() {
+            @Override
+            public void onDoubleTap() {
+                UserFeedback.show("Double tap");
+                isExpanded = !isExpanded;
+                appbar.setExpanded(isExpanded);
+            }
 
-        mGestureDetector = new GestureDetector(this,
+            @Override
+            public void onLongPress() {
+                UserFeedback.show("Long press");
+            }
 
-                new GestureDetector.SimpleOnGestureListener() {
-                    @Override
-                    public boolean onDoubleTap(MotionEvent e) {
-                        UserFeedback.show("onDoubleTap");
-                        isExpanded = !isExpanded;
-                        appbar.setExpanded(isExpanded);
-                        return true;
-                    }
+            @Override
+            public void onSwipeLeft() {
+                UserFeedback.show("Swipe left");
+            }
 
-                    @Override
-                    public boolean onDoubleTapEvent(MotionEvent e) {
-                        UserFeedback.show("onDoubleTapEvent");
-                        return true;
-                    }
-
-                    @Override
-                    public boolean onDown(MotionEvent e) {
-                        UserFeedback.show("onDown");
-                        return true;
-                    }
-
-                    @Override
-                    public boolean onFling(MotionEvent e1, MotionEvent e2,
-                                           float velocityX, float velocityY) {
-                        UserFeedback.show("onFling");
-                        return true;
-                    }
-
-                    @Override
-                    public void onLongPress(MotionEvent e) {
-                        UserFeedback.show("onLongPress");
-                    }
-
-                    @Override
-                    public boolean onScroll(MotionEvent e1, MotionEvent e2,
-                                            float distanceX, float distanceY) {
-                        UserFeedback.show("onScroll");
-                        return true;
-                    }
-
-                    @Override
-                    public void onShowPress(MotionEvent e) {
-                        UserFeedback.show("onShowPress");
-                    }
-
-                    @Override
-                    public boolean onSingleTapConfirmed(MotionEvent e) {
-                        UserFeedback.show("onSingleTapConfirmed");
-                        return true;
-                    }
-
-                    @Override
-                    public boolean onSingleTapUp(MotionEvent e) {
-                        UserFeedback.show("onSingleTapUp");
-                        return true;
-                    }
-                });
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        if (mGestureDetector != null) {
-            return mGestureDetector.onTouchEvent(event);
-        } else {
-            return super.onTouchEvent(event);
-        }
-
+            @Override
+            public void onSwipeRight() {
+                UserFeedback.show("Swipe right");
+            }
+        }));
     }
 }

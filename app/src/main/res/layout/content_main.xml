@@ -25,7 +25,7 @@
             android:textSize="30sp"
             android:textColor="@android:color/white"
             android:gravity="center"
-            android:padding="50dp"/>
+            android:padding="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -34,7 +34,7 @@
             android:textSize="30sp"
             android:textColor="@android:color/white"
             android:gravity="center"
-            android:padding="50dp"/>
+            android:padding="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -43,12 +43,12 @@
             android:textSize="30sp"
             android:textColor="@android:color/white"
             android:gravity="center"
-            android:padding="50dp"/>
+            android:padding="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Double click here"
+            android:text="Test gestures. Double click to toggle visibility of the toolbar"
             android:background="@color/colorAccent"
             android:textSize="30sp"
             android:id="@+id/tv"
@@ -63,7 +63,7 @@
             android:textSize="30sp"
             android:textColor="@android:color/white"
             android:gravity="center"
-            android:padding="50dp"/>
+            android:padding="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -72,7 +72,7 @@
             android:textSize="30sp"
             android:textColor="@android:color/white"
             android:gravity="center"
-            android:padding="50dp"/>
+            android:padding="20dp"/>
 
     </LinearLayout>
 
